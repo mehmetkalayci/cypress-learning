@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "nodemon ./bin/www",
     "cypress": "npx cypress open"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
-    "cypress": "^13.6.6"
+    "cypress": "^13.6.6",
+    "nodemon": "^3.1.0"
   }
 }

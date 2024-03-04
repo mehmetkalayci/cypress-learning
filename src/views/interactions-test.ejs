@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <style>
+      .section {
+        padding: 10px;
+        margin: 10px 0;
+        border: solid 1px #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 data-cy="app-title" ondblclick="updateColor()"><%= title %></h1>
+    <p>Welcome to <%= title %> page. Click on the h1</p>
+
+    <div class="section">
+      <h1>
+        Number of selected checkbox items:
+        <span data-cy="number-of-selected-checkbox">0</span>
+      </h1>
+
+      <input type="checkbox" id="checkbox1" onchange="countCheckboxes(this)" />
+      <label for="checkbox1">Checkbox 1</label>
+      <br />
+
+      <input type="checkbox" id="checkbox2" onchange="countCheckboxes(this)" />
+      <label for="checkbox2">Checkbox 2</label>
+      <br />
+
+      <input type="checkbox" id="checkbox3" onchange="countCheckboxes(this)" />
+      <label for="checkbox3">Checkbox 3</label>
+    </div>
+
+    <div class="section">
+      <h1>Selection: <span data-cy="selection"></span></h1>
+      <label for="selections">Select an item</label>
+      <select
+        id="selections"
+        data-cy="item-selection"
+        onchange="selectItem(this)"
+      >
+        <option value="1">Item 1</option>
+        <option value="2">Item 2</option>
+        <option value="3">Item 3</option>
+      </select>
+    </div>
+
+    <script>
+      function selectItem(item) {
+        const itemSelection = document.querySelector(
+          '[data-cy="selection"]'
+        );
+        itemSelection.innerHTML = item.value + " is selected";
+      }
+
+      /***************/
+      let numberOfSelectedCheckbox = 0;
+
+      function countCheckboxes(params) {
+        numberOfSelectedCheckbox += params.checked ? 1 : -1;
+
+        const selectedCheckboxCounter = document.querySelector(
+          '[data-cy="number-of-selected-checkbox"]'
+        );
+        selectedCheckboxCounter.innerHTML = numberOfSelectedCheckbox;
+      }
+      /***************/
+      function updateColor() {
+        var titleElement = document.querySelector('[data-cy="app-title"]');
+        titleElement.style.color = "red";
+      }
+      /***************/
+    </script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 describe('End user agreement form tests', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:3000/');
+        cy.visit('/');
 
         cy.get('[data-cy="char-count-span"]')
             .as('charCountSpan');
