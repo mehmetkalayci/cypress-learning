@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1 data-cy="app-title"><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <input type="text" id="title" maxlength="15" oninput="updateCharCount()" data-cy="title-input" />
+    <span id="charCount" data-cy="char-count-span">15</span> characters left
+
+    <script>
+      function updateCharCount() {
+        var titleField = document.getElementById("title");
+        var charCount = document.getElementById("charCount");
+        var remainingChars = titleField.maxLength - titleField.value.length;
+        charCount.textContent = remainingChars;
+      }
+    </script>
+  </body>
+</html>
