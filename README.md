@@ -57,7 +57,6 @@
   npx cypress open --env MY_VARIABLE=hello
   ```
   2nd Method:
-  ```
   Define variables like bellow in the cypress.config.js file.
   ```
   env: {
@@ -74,5 +73,14 @@
       "MY_VARIABLE": "Test"
   }
   ```
-
+- To enable autocompletion for cypress. Create a jsconfig.json file then use the following configuration.
+  ```
+  {
+      "include": ["./node_modules/cypress", "cypress/**/*.js"]
+  }
+  ```
+- To type special characters in inputs. Type the name of the key like bellow. For more details visit [Cypress Type Command](https://docs.cypress.io/api/commands/type#__docusaurus_skipToContent_fallback)
+  ```
+  cy.get('input').type('This is a test message {enter}');
+  ```
 - For more information [Cypress Documentation](https://docs.cypress.io/)
