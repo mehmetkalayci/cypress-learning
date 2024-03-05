@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "cypress": "npx cypress open"
+    "cypress": "npx cypress open",
+    "cypress-dev": "npx cypress open --env MY_VARIABLE=hello"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

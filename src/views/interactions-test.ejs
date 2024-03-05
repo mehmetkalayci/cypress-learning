@@ -48,11 +48,27 @@
       </select>
     </div>
 
+    <div class="section">
+      <h1 data-cy="hovered-item"></h1>
+      <ul data-cy="hover">
+        <li onmouseover="listHover(this)">Item 1</li>
+        <li onmouseover="listHover(this)">Item 2</li>
+        <li onmouseover="listHover(this)">Item 3</li>
+        <li onmouseover="listHover(this)">Item 4</li>
+        <li onmouseover="listHover(this)">Item 5</li>
+      </ul>
+    </div>
+
     <script>
+      function listHover(item) {
+        const value = item.innerHTML;
+        const hoveredItem = document.querySelector('[data-cy="hovered-item"]');
+        hoveredItem.innerHTML = value;
+      }
+
+      /***************/
       function selectItem(item) {
-        const itemSelection = document.querySelector(
-          '[data-cy="selection"]'
-        );
+        const itemSelection = document.querySelector('[data-cy="selection"]');
         itemSelection.innerHTML = item.value + " is selected";
       }
 
